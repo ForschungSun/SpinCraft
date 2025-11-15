@@ -1,11 +1,9 @@
 {
   "entries": [
-    { "label": "A", "weight": 1 },
-    { "label": "B", "weight": 1 },
-    { "label": "C", "weight": 1 },
-    { "label": "D", "weight": 1 },
-    { "label": "E", "weight": 1 },
-    { "label": "F", "weight": 1 },
-    { "label": "G", "weight": 1 }
+    { "label": "尿素", "weight": 1 },
+    { "label": "玉米", "weight": 1 },
+    { "label": "豆粕", "weight": 1 },
+    { "label": "螺纹钢", "weight": 2 },
+    { "label": "纯碱", "weight": 1 }
   ]
 }

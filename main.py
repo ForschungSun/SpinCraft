@@ -1,20 +1,30 @@
 import json
+import sys
 import tkinter as tk
 from pathlib import Path
 
-from wheel.model import WheelModel
-from wheel.renderer import WheelRenderer
-from wheel.animation import WheelAnimator
+from spincraft_wheel.model import WheelModel
+from spincraft_wheel.renderer import WheelRenderer
+from spincraft_wheel.animation import WheelAnimator
+
+
+def get_base_dir() -> Path:
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    else:
+        return Path(__file__).resolve().parent
 
 
 def load_default_entries():
-    base_dir = Path(__file__).resolve().parent
+    base_dir = get_base_dir()
     cfg_path = base_dir / "config" / "default_entries.json"
+
     if not cfg_path.exists():
-        # fallback
         return [("A", 1), ("B", 1), ("C", 1), ("D", 1)]
+
     with cfg_path.open("r", encoding="utf-8") as f:
         data = json.load(f)
+
     entries = []
     for item in data.get("entries", []):
         entries.append((item["label"], float(item["weight"])))
